@@ -127,7 +127,7 @@ In this section you will be doing some preprocessing and exploratory data analys
 
 <b>1) Read the CSV file into a pandas dataframe
 
-In the data you'll be working with is found in './data/fifa.csv'  Complete the first function below to read it into a pandas dataframe. 
+The data you'll be working with is found in a file called './data/fifa.csv'  Complete the first function below to read it into a pandas dataframe. 
 
 Check the contents of your dataframe with `df.head()`</b>
 
@@ -257,6 +257,8 @@ import seaborn as sns
 
 <b> 2) Make a bar chart for the 10 countries with the most players (by nationality)</b>
 
+Make sure to include x labels on your chart!
+
 
 ```python
 #code here to get the top 10 countries with the most players
@@ -309,7 +311,7 @@ Create a new column that has the 'release_clause' in dollars.
 
 ```
 
-<b>3) What is the mean age and the median age?  How are the mean and median related to each other?</b>
+<b>3) What is the mean age and the median age for the players in this dataset?  How are the mean and median related to each other?</b>
 
 // answer here //
 
@@ -329,7 +331,7 @@ Hint: a groupby clause might help here
 
 a. What is the difference between covariance and correlation?  
 b. What can you infer from the relationship between these variables?  
-c. Why might it not be a good idea to include both of these in a regression model?
+c. Would it be a good idea to include both of these in a regression model?
 
 
 ```python
@@ -370,6 +372,6 @@ Two players have the following stats:
 
 2) Finishing : 1, Heading Accuracy :  8, ShortPassing : 5
 
-Assume all the remaining stats are the same for both players. By how much can we expect the Release Clause of each player to be different. Explain how you obtained your calculation. </b>
+Assume all the remaining stats are the same for both players. By how much can we expect the Release Clause of each player to be different? Explain how you obtained your calculation. </b>
 
 // answer here //
