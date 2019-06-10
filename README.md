@@ -5,7 +5,7 @@ Congrats on completing Mod 1! In this assessment we'll cover Python fundamentals
 
 ## Python Fundamentals
 
-In the first section, we will work with various Python data types and try to accomplish certain tasks using some Python fundamentals. Below, we've defined a dictionary with player names as keys for nested dictionaries containing information about each players age, nationality, and a list of teams they have played for.   
+In the first section, we will work with various Python data types and try to accomplish certain tasks using some Python fundamentals. Below, we've defined a dictionary with soccer player names as keys for nested dictionaries containing information about each players age, nationality, and a list of teams they have played for.   
 
 
 ```python
@@ -93,15 +93,43 @@ def get_nationality(dict_, player_names):
 nationality = get_nationality(players, player_names)
 ```
 
+#### 3) Now, create a function that obtains players based on which teams they've been on.
+
+
+```python
+def get_players_on_team(dict_,team_name):
+    '''
+    Generate a list of players that have ever played on a given team.
+    
+    Parameters
+    ----------
+    dict_ : dictionary object
+        Dictionary of player information
+    team_name: string
+        Name of team to be searched for
+    
+    Returns
+    --------
+    player_list : list object
+        List containing player names
+    '''
+    pass
+```
+
+
+```python
+players_on_manchester_united = get_players_on_team(players,'Manchester United')
+```
+
 ## Pandas and Numpy
 
 In this section you will be doing some preprocessing and exploratory data analysis for a dataset for the videogame FIFA19 (https://www.kaggle.com/karangadiya/fifa19).  The dataset contains both data for the game as well as information about the players' real life careers.  You will be building toward running a regression. 
 
 <b>1) Read the CSV file into a pandas dataframe
 
-In the data folder is a file called fifa.csv - this contains the data we will be working with. Complete the first function below to read it into a pandas dataframe. 
+In the data you'll be working with is found in './data/fifa.csv'  Complete the first function below to read it into a pandas dataframe. 
 
-Check your dataframe with `df.head()`</b>
+Check the contents of your dataframe with `df.head()`</b>
 
 
 ```python
@@ -133,19 +161,6 @@ df = get_fifa_data()
 df.head()
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    AttributeError                            Traceback (most recent call last)
-
-    <ipython-input-11-a941991f0a4c> in <module>
-          1 df = get_fifa_data()
-    ----> 2 df.head()
-    
-
-    AttributeError: 'NoneType' object has no attribute 'head'
-
-
 <b>2) Check for duplicates
     
 First, check how many rows are in the dataset, then check how many unique values are in the "ID" column.</b>
@@ -164,7 +179,7 @@ First, check how many rows are in the dataset, then check how many unique values
 
 <b> 3) Drop Duplicates
     
-It looks like there are duplicates.  Get rid of them by dropping duplicate rows.</b>
+It looks like there are duplicates.  Get rid of them by dropping duplicate rows. After you have dropped them, see how many rows are remaining.</b>
 
 
 ```python
@@ -180,7 +195,7 @@ It looks like there are duplicates.  Get rid of them by dropping duplicate rows.
 
 <b> 4. Drop n/a rows for "Release Clause"
     
-Drop rows for which "Release Clause" is none or not given.  This is part of a soccer player's contract dealing with being bought out by another team.  Release Clause will be the target variable for our regression model. </b>
+Drop rows for which "Release Clause" is none or not given. This is part of a soccer player's contract dealing with being bought out by another team. Release Clause will be the target variable for our regression model.  After you have dropped them, see how many rows are remaining.</b>
 
 
 ```python
@@ -195,7 +210,7 @@ Drop rows for which "Release Clause" is none or not given.  This is part of a so
 ```
 
 <b> 5) Convert players' heights to inches. Replace the original height column.
-First create a function, then use it on your dataframe. Create a function that convert a string into a integer and then apply that function to all of the height column. If it's `nan` then return `nan`.</b>
+First create a function, then use it on your dataframe. Create a function that convert a string into a integer and then apply that function to all of the height column.</b>
 
 
 ```python
@@ -225,7 +240,7 @@ convert_height("5'7")
 
 <b> 1) Make a histogram of players age
     
-Add a title and x axis label. Use whichever plotting library you are most comfortable with. </b>
+_Add a title and x axis label._ Use whichever plotting library you are most comfortable with. </b>
 
 
 ```python
@@ -294,17 +309,27 @@ Create a new column that has the 'release_clause' in dollars.
 
 ```
 
-<b>3) What is the mean age and the median age?  What does each mean?</b>
+<b>3) What is the mean age and the median age?  How are the mean and median related to each other?</b>
+
+// answer here //
+
+#### 4) Who is the oldest player in Argentina and how old is he?  
+Hint: a groupby clause might help here
+
+
+```python
+# code here
+```
 
 // answer here //
 
 ## Linear Regression
 
-<b> 1) What are the covariance and correlation between "SprintSpeed" and "Agility"? </b>
+<b> 1) What are the covariance and correlation between "GKDiving" and "GKHandling"? </b>
 
-- What is the difference between covariance and correlation?
-- What can you infer from the relationship between these variables?
-- Why might it not be a good idea to include both of these in a regression model?
+a. What is the difference between covariance and correlation?  
+b. What can you infer from the relationship between these variables?  
+c. Why might it not be a good idea to include both of these in a regression model?
 
 
 ```python
@@ -315,14 +340,14 @@ Create a new column that has the 'release_clause' in dollars.
 
 // answer here //
 
-<b>2) Do a linear regression</b>
+<b>2) Fit a linear regression using the `ols` module of statsmodels</b>
 
-Let's see how well each players' in-game stats reflect their real-world monetary value as a player. We  will not be considering real-world factors for this model.
+Let's see how well each players' in-game stats reflect their real-world monetary value as a player. We  will not be considering real-world factors for this model, just the variables listed below.
 
 - y variable: Release Clause (the one in euros)
 - x variables: 'Finishing', 'HeadingAccuracy', 'ShortPassing', 'Volleys', 'Dribbling', 'Curve', 'FKAccuracy', 'LongPassing', 'BallControl', 'Acceleration', 'SprintSpeed', 'Agility', 'Reactions', 'Balance', 'ShotPower', 'Jumping', 'Stamina', 'Strength', 'LongShots', 'Aggression','Interceptions', 'Positioning', 'Vision', 'Penalties', 'Composure','Marking', 'StandingTackle', 'SlidingTackle', 'GKDiving', 'GKHandling','GKKicking', 'GKPositioning', 'GKReflexes'
 
-https://github.com/learn-co-curriculum/dsc-ols-statsmodels
+Once you have fit the linear regression, display the results (coefficient values, $R^2$, etc.). Displaying the results can be done with one method!
 
 
 ```python
@@ -345,6 +370,6 @@ Two players have the following stats:
 
 2) Finishing : 1, Heading Accuracy :  8, ShortPassing : 5
 
-Assume all the remaining stats are the same for both players. By how much can we expect the Release Clause of each player to be different. </b>
+Assume all the remaining stats are the same for both players. By how much can we expect the Release Clause of each player to be different. Explain how you obtained your calculation. </b>
 
 // answer here //
