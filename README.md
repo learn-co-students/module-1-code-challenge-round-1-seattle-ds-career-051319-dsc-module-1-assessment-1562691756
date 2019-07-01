@@ -1,7 +1,18 @@
 
 <h1 style='text-align:center'> Module 1 Assessment</h1>
 
-Congrats on completing Mod 1! In this assessment we'll cover Python fundamentals, working with statistical data, pandas and numpy, data visualization and linear regression. 
+This assessment is designed to test your understanding of the Mod 1 material. It covers:
+
+* Python Fundamentals
+* Working with Statistical Data
+* Pandas and Numpy
+* Data Visualization
+* Linear Regression
+
+Read the instructions carefully. You will be asked both to write code and respond to a few short answer questions.
+
+#### Note on the short answer questions
+For the short answer questions _please use your own words_. The expectation is that you have **not** copied and pasted from an external source, even if you consult another source to help craft your response. While the short answer questions are not necessarily being assessed on grammatical correctness or sentence structure, do your best to communicate yourself clearly.
 
 ## Python Fundamentals
 
